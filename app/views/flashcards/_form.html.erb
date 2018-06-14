@@ -1,0 +1,32 @@
+<%= form_with(model: flashcard, local: true) do |form| %>
+  <% if flashcard.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(flashcard.errors.count, "error") %> prohibited this flashcard from being saved:</h2>
+
+      <ul>
+      <% flashcard.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :flashcard_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :a_side %>
+    <%= form.text_area :a_side, id: :flashcard_a_side %>
+  </div>
+
+  <div class="field">
+    <%= form.label :b_side %>
+    <%= form.text_area :b_side, id: :flashcard_b_side %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

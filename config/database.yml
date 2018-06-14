@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: flashers_development
+
+test:
+  <<: *default
+  database: flashers_test
+
+production:
+  <<: *default
+  database: flashers_production
